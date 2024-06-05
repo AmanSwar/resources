@@ -85,6 +85,7 @@ class DenseNet3(nn.Module):
         in_planes = int(in_planes+n*growth_rate)
         self.trans1 = TransitionBlock(in_planes, int(math.floor(in_planes*reduction)), dropRate=dropRate)
         in_planes = int(math.floor(in_planes*reduction))
+        
         # 2nd block
         self.block2 = DenseBlock(n, in_planes, growth_rate, block, dropRate)
         in_planes = int(in_planes+n*growth_rate)
